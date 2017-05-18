@@ -4,9 +4,9 @@
 
   $link = db_connect();
 
-  $article['title']='';       ///
-  $article['date']='';        ///
-  $article['content']='';     ///
+    $article['title']='';
+    $article['date']='';
+    $article['content']='';
 
     if (isset($_GET['action']))
       $action = $_GET['action'];
@@ -31,7 +31,7 @@
               header("Location: index.php");
             }
             $article = articles_get($link, $id);
-            include("../views/articles_admin.php");
+            include("../views/article_admin.php");
         }
       else {
           $articles = articles_all($link);
