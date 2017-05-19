@@ -47,7 +47,7 @@ function articles_edit($link, $id, $title, $date, $content){
   if ($title == '')
   return false;
 
-  $sql = "UPDATE articles SET title='%s', content='%s', date='%s' WHERE id='%d'";
+  $sql = "UPDATE article SET title='%s', content='%s', date='%s' WHERE id='%d'";
 
   $query = sprintf($sql, mysqli_real_escape_string($link, $title),
   mysqli_real_escape_string($link, $content),
@@ -55,13 +55,27 @@ function articles_edit($link, $id, $title, $date, $content){
   $id);
 
   $result = mysqli_query ($link, $query);
-  
+
   if (!$result)
     die(mysqli_error($link));
 
     return mysqli_affected_rows($link);
 }
-function articles_delete($id){
+function articles_delete($link, $id){
+  $id = (int)$id;
 
+  if ($id == 0)
+  return false;
+
+  $query = sprintf("DELETE FROM article WHERE id='%d'", $id);
+  $result = mysqli_query($link, $query);
+
+  if ($result)
+    die(mysqli_error($link));
+
+    return mysqli_affected_rows($link);
+}
+function articles_intro($text, $len=55){
+  return substr($text, 0, $len);
 }
  ?>

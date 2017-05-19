@@ -12,17 +12,17 @@
         <div>
           <form method="post" action="index.php?action=<?=$_GET['action']?>&id=<?=$_GET['id']?>">
             <label>
-              Название<br>
+              <br>
               <input type="text" name="title" value="<?=$article['title']?>" class="form-item" autofocus required>
             </label>
             <br>
             <label>
-              Дата<br>
+              <br>
               <input type="date" name="date" value="<?=$article['date']?>" class="form-item" required>
             </label>
             <br>
             <label>
-              Содержимое<br>
+              <br>
               <textarea class="form-item" name="content" required><?=$article['content']?></textarea>
             </label>
             <br>
